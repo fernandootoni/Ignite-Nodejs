@@ -2,7 +2,7 @@ import { DataSource } from 'typeorm'
 
 const appDataSource = new DataSource({
   type: "postgres",
-  host: "localhost", // Com o nome do container funciona
+  host: "localhost",
   port: 5432,
   username: "docker",
   password: "ignite",
@@ -14,7 +14,7 @@ const appDataSource = new DataSource({
   subscribers: [],
 })
 
-export function createConnection(host = "database"): Promise<DataSource> {
+export function createConnection(host = "postgres"): Promise<DataSource> {
   return appDataSource.setOptions({ host }).initialize();
 }
 
