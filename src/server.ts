@@ -4,9 +4,9 @@ import { router } from './routes';
 import swaggerFile from "./swagger.json"
 import "reflect-metadata"
 
-import { createConnection } from './database/data-source';
+// import { createConnection } from './database/data-source';
 
-createConnection()
+// createConnection()
 
 const app = express();
 app.use(express.json());
