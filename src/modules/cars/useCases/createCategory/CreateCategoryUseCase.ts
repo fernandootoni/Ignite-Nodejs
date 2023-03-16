@@ -1,7 +1,7 @@
+import { ICategoriesRepository } from '@modules/cars/repositories/ICategoriesRepository';
+import { AppError } from '@shared/errors/AppError';
 import 'reflect-metadata'
 import { inject, injectable } from "tsyringe";
-
-import { ICategoriesRepository } from "../../repositories/ICategoriesRepository";
 
 interface IRequest {
   name: string;
@@ -19,7 +19,7 @@ class CreateCategoryUseCase {
     const categoryAlreadyExists = await this.categoriesRepository.findByName(name);
 
     if(categoryAlreadyExists) { 
-      throw new Error("Category already exist!");
+      throw new AppError("Category already exist!");
     }
 
     this.categoriesRepository.create({ name, description })
